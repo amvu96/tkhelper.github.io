@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+
+<html>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+		
+	<head>
+	<script>
+	const request = new XMLHttpRequest();
+ 
+request.open('GET', 'https://raw.githubusercontent.com/amvu96/bookcase/master/littledb.json');
+request.send(); 
+ 
+request.onload = () => {
+  if (request.status === 200) {
+    console.log("Success"); // So extract data from json and create table
+    
+    //Extracting data
+    var subtitle = JSON.parse(request.response).value.subtitle;
+	var version = JSON.parse(request.response).value.version;
+    var windows = JSON.parse(request.response).value.windows;
+	var office = JSON.parse(request.response).value.office;
+	var apps = JSON.parse(request.response).value.apps;
+	var media = JSON.parse(request.response).value.media;
+    
+    //Creating table
+   
+ 
+    //Showing the table inside table
+    document.getElementById("subtitle").innerHTML = subtitle;   
+	document.getElementById("windows").innerHTML = windows;
+document.getElementById("office").innerHTML = office; 
+document.getElementById("apps").innerHTML = apps; 
+document.getElementById("media").innerHTML = media; 
+document.getElementById("version").innerHTML = version;	
+  } 
+};
+ 
+request.onerror = () => {
+  console.log("error")
+};
+	</script>
+		<title>TKHelper </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-address-book"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>TKHelper</h1>
+								<p id="subtitle"></p>
+								
+								
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#windowsarticle">Utile</a></li>
+								<li><a href="#officearticle">Abonament</a></li>
+								<li><a href="#appsarticle">Transferuri</a></li>
+								<li><a href="#mediaarticle">Suport</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="windowsarticle">
+								<h2 class="major">Extraoptiuni</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p id="windows"></p>
+								</article>
+
+						<!-- Work -->
+							<article id="officearticle">
+								<h2 class="major">Abonament</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p id="office"></p>
+								</article>
+
+						<!-- About -->
+							<article id="appsarticle">
+								<h2 class="major">Transferuri</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p id="apps"></p>
+								</article>
+
+						<!-- Contact -->
+							<article id="mediaarticle">
+								<h2 class="major">Suport</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p id="media"></p>
+								</article>
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy;  Amvu 2018<p id="version"></p></p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="cordova.js"></script>
+	</body>
+</html>
